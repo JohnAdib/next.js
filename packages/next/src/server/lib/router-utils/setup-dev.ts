@@ -139,6 +139,7 @@ async function startWatcher(opts: SetupOpts) {
   let hotReloader: InstanceType<typeof HotReloader>
 
   if (opts.turbo) {
+    console.log('-----------------running with turbopack-----------------')
     const { loadBindings } =
       require('../../../build/swc') as typeof import('../../../build/swc')
 
@@ -181,6 +182,7 @@ async function startWatcher(opts: SetupOpts) {
               case 'page-api':
               case 'app-page':
               case 'app-route': {
+                Log.info(`${pathname} (${route})`)
                 curEntries.set(pathname, route)
                 break
               }

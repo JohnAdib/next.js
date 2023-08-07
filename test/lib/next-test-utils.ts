@@ -450,7 +450,7 @@ export function launchApp(
 
   return runNextCommandDev(
     [
-      useTurbo ? getTurbopackFlag() : undefined,
+      useTurbo || useExperimentalTurbo ? getTurbopackFlag() : undefined,
       dir,
       '-p',
       port as string,

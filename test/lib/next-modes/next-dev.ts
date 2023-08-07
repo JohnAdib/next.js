@@ -23,7 +23,9 @@ export class NextDevInstance extends NextInstance {
       throw new Error('next already started')
     }
 
-    const useTurbo = !process.env.TEST_WASM && (this as any).turbo
+    const useTurbo =
+      !process.env.TEST_WASM &&
+      ((this as any).turbo || (this as any).experimentalTurbo)
 
     let startArgs = [
       'yarn',
